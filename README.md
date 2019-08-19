@@ -9,5 +9,5 @@ ti podaci se zatim odvojeno upisuju u pickle datoteke
 
 train.py - čita podatke iz pickle datoteka, trenira na njima i stvara .model datoteku
 
-test.py 
+test.py - pri pokretanju će tražiti unos naziva datoteke, postojeće datoteke su: viski.jpg - jager.jpg - stock.jpg
 
