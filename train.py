@@ -6,10 +6,10 @@ import pickle
 import time
 
 #čitanje podataka iz pickle datoteka
-pickle_in = open("X.pickle","rb")
+pickle_in = open("../ruap_data/X.pickle","rb")
 X = pickle.load(pickle_in)
 
-pickle_in = open("y.pickle","rb")
+pickle_in = open("../ruap_data/y.pickle","rb")
 y = pickle.load(pickle_in)
 
 X = X/255.0
@@ -46,15 +46,16 @@ for dense_layer in dense_layers:
 
             tensorboard = TensorBoard(log_dir="logs/{}".format(NAME))
 
+            #postavljanje parametara modela
             model.compile(loss='categorical_crossentropy',
                           optimizer='adam',
                           metrics=['categorical_accuracy'],
                           )
-
+            #postavljanje parametara učenja
             model.fit(X, y,
-                      batch_size=64,
-                      epochs=50,
-                      validation_split=0.3,
+                      batch_size=16,
+                      epochs=15,
+                      validation_split=0.2,
                       callbacks=[tensorboard])
-
-model.save('64x6-CNN.model')
+#spremanje modela
+model.save('64x3-CNN.model')
