@@ -1,10 +1,12 @@
 
 import cv2
 import tensorflow as tf
+import sys
 
 DATADIR = "../ruap_data/test/"
 IMG_SIZE = 350
-IMG_NAME = input("Unesite ime datoteke: ")
+IMG_NAME = sys.argv[1] if len(sys.argv) > 1 else "somevalue"
+
 #prilagodba slike za testiranje
 def prepare(filepath):
     img_array = cv2.imread(filepath, cv2.IMREAD_GRAYSCALE)
